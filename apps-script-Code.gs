@@ -3,10 +3,15 @@
  * Receives POSTs from the landing page and appends them to the sheet.
  *
  * Sheet: https://docs.google.com/spreadsheets/d/14-kHaXsQ5G3OssIT5AA3CgBb5uIbjmC_Bx39H2Cim1A
+ *
+ * Column order: Timestamp | First Name | Email | Source | Page
  */
 
 var SHEET_ID = "14-kHaXsQ5G3OssIT5AA3CgBb5uIbjmC_Bx39H2Cim1A";
 var SHEET_NAME = "Subscribers"; // tab name — created automatically if missing
+
+var HEADERS = ["Timestamp", "First Name", "Email", "Source", "Page"];
+var EMAIL_COL = 3; // column C — keep in step with HEADERS above
 
 function doPost(e) {
   try {
@@ -15,6 +20,7 @@ function doPost(e) {
 
     var params = (e && e.parameter) || {};
     var email = String(params.email || "").trim().toLowerCase();
+    var firstName = String(params.firstName || "").trim();
     var source = String(params.source || "site");
     var page = String(params.page || "");
 
@@ -30,15 +36,15 @@ function doPost(e) {
 
     // Header row on first use
     if (sheet.getLastRow() === 0) {
-      sheet.appendRow(["Timestamp", "Email", "Source", "Page"]);
-      sheet.getRange("A1:D1").setFontWeight("bold");
+      sheet.appendRow(HEADERS);
+      sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight("bold");
       sheet.setFrozenRows(1);
     }
 
     // Skip exact duplicate emails
     var lastRow = sheet.getLastRow();
     if (lastRow > 1) {
-      var existing = sheet.getRange(2, 2, lastRow - 1, 1).getValues();
+      var existing = sheet.getRange(2, EMAIL_COL, lastRow - 1, 1).getValues();
       for (var i = 0; i < existing.length; i++) {
         if (String(existing[i][0]).trim().toLowerCase() === email) {
           return jsonResponse({ ok: true, duplicate: true });
@@ -46,7 +52,7 @@ function doPost(e) {
       }
     }
 
-    sheet.appendRow([new Date(), email, source, page]);
+    sheet.appendRow([new Date(), firstName, email, source, page]);
     return jsonResponse({ ok: true });
   } catch (err) {
     return jsonResponse({ ok: false, error: String(err) });
