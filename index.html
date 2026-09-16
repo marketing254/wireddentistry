@@ -3,7 +3,45 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Wired Dentistry</title>
+<script>
+/* Someone arriving on an explicit /index.html URL (an old link, a bookmark)
+   gets the address bar tidied to the clean path. No reload, no redirect —
+   the page they asked for is the page they already have.
+   Runs before the Google tag below so the analytics page_view reports the
+   clean path, rather than splitting one page across two rows. */
+if (location.pathname.slice(-11) === "/index.html") {
+  history.replaceState(null, "", location.pathname.slice(0, -10) + location.search + location.hash);
+}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4SE2EYSHFF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4SE2EYSHFF');
+</script>
+<title>The Wired Dentistry | Podcast for Dental Practice Owners</title>
+<meta name="description" content="A weekly half-hour podcast on the marketing and technology that decide whether a dental practice grows — with Naren Arulrajah and Dr. Lorne Lavine.">
+<link rel="canonical" href="https://wireddentistry.com/">
+<meta name="theme-color" content="#10263A">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2310263A'/%3E%3Cpath d='M5 18h6l2-6 3 12 2-6h9' fill='none' stroke='%2312B5A5' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Wired Dentistry">
+<meta property="og:title" content="The Wired Dentistry | Podcast for Dental Practice Owners">
+<meta property="og:description" content="A weekly half-hour podcast on the marketing and technology that decide whether a dental practice grows — with Naren Arulrajah and Dr. Lorne Lavine.">
+<meta property="og:url" content="https://wireddentistry.com/">
+<meta property="og:image" content="https://wireddentistry.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Wired Dentistry — Naren Arulrajah and Dr. Lorne Lavine">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Wired Dentistry | Podcast for Dental Practice Owners">
+<meta name="twitter:description" content="A weekly half-hour podcast on the marketing and technology that decide whether a dental practice grows.">
+<meta name="twitter:image" content="https://wireddentistry.com/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -15,6 +53,9 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
+/* The header is sticky, so an in-page jump would otherwise land with the
+   section's first line hidden underneath it. */
+#episodes,#summit,#hosts,#guests{scroll-margin-top:104px}
 body{font-family:Poppins,system-ui,sans-serif;color:var(--ink);background:var(--paper);
   -webkit-font-smoothing:antialiased;line-height:1.62}
 a{color:inherit;text-decoration:none}
@@ -235,7 +276,253 @@ nav .btn2::after{display:none}
   padding:17px 34px;border-radius:4px}
 .subcta:hover{background:var(--teal);color:#fff}
 @media(max-width:1040px){.herocta,.subcta{display:block;text-align:center}}
+
+/* Thumb targets. Footer and inline links sit at 20-23px by default, under the
+   44px minimum, so they get padding rather than a bigger font — nothing reflows. */
+@media(max-width:1040px){
+  .fc a{padding:11px 0;margin-bottom:0}
+  .apps a{display:inline-block;padding:11px 0}
+  .more a{display:inline-block;padding:11px 0}
+  nav .btn{min-height:44px;display:inline-flex;align-items:center}
+}
+
+/* ============ phones ============ */
+/* Nothing below 1040px had its own rules, so the tablet layout was being
+   asked to do phone duty. The wordmark alone is ~253px at its desktop
+   height, which with 40px gutters either side does not fit a 360px screen
+   next to the Subscribe button. */
+img,svg{max-width:100%}
+
+@media(max-width:600px){
+  .wrap{padding:0 20px}
+
+  .hd{height:64px}
+  .logo{height:28px}
+  #episodes,#summit,#hosts,#guests{scroll-margin-top:76px}
+  .logo-foot{height:26px}
+  .logo-summit{height:52px}
+  nav{gap:0}
+  nav .btn{padding:10px 16px;font-size:13.5px}
+
+  h1{font-size:29px;line-height:1.16}
+  h2{font-size:23px}
+  blockquote{font-size:19px;padding-left:18px}
+  blockquote cite{font-size:13px;margin-top:18px}
+  .lede,.lede2{font-size:16px}
+
+  .hcopy{padding:36px 0 32px}
+  .episodes{padding:52px 0 20px}
+  .quote,.guests,.sub,.hosts{padding:44px 0}
+  .summit,.work{padding:52px 0}
+  .summit .wrap{gap:36px}
+
+  .ehead{padding-bottom:18px}
+  .ehead p{font-size:14.5px;max-width:none}
+  .ep{grid-template-columns:38px 1fr;gap:14px;padding:22px 0}
+  .eno{font-size:21px}
+  .ep h3{font-size:17.5px}
+  .ep p{font-size:14.5px}
+  .more{padding-top:24px}
+
+  .wcard{padding:26px 0}
+  .wcard p{font-size:14.5px}
+  .herocta,.subcta,.wbtn{padding:15px 18px;font-size:15px}
+
+  .met,.chip{font-size:12px}
+  .fg{gap:26px}
+  .fb{font-size:11.5px;gap:8px}
+}
+
+/* Narrow phones (iPhone SE and similar) */
+@media(max-width:380px){
+  .wrap{padding:0 16px}
+  .logo{height:24px}
+  h1{font-size:26px}
+  h2{font-size:21px}
+  nav .btn{padding:9px 13px;font-size:13px}
+}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://wireddentistry.com/#website",
+      "url": "https://wireddentistry.com/",
+      "name": "The Wired Dentistry",
+      "description": "A weekly podcast about what decides whether a dental practice grows.",
+      "inLanguage": "en-US",
+      "publisher": {
+        "@id": "https://wireddentistry.com/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://wireddentistry.com/#organization",
+      "name": "The Wired Dentistry",
+      "url": "https://wireddentistry.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://wireddentistry.com/og-image.jpg"
+      },
+      "description": "A weekly podcast for dental practice owners on marketing and practice technology, hosted by Naren Arulrajah and Dr. Lorne Lavine.",
+      "founder": [
+        {
+          "@id": "https://wireddentistry.com/#naren"
+        },
+        {
+          "@id": "https://wireddentistry.com/#lorne"
+        }
+      ]
+    },
+    {
+      "@type": "PodcastSeries",
+      "@id": "https://wireddentistry.com/#podcast",
+      "name": "The Wired Dentistry",
+      "url": "https://wireddentistry.com/",
+      "description": "A weekly half-hour conversation about everything that decides whether a dental practice grows — and everything that quietly stops it. Marketing and practice technology, treated as the same problem.",
+      "inLanguage": "en-US",
+      "author": [
+        {
+          "@id": "https://wireddentistry.com/#naren"
+        },
+        {
+          "@id": "https://wireddentistry.com/#lorne"
+        }
+      ],
+      "actor": [
+        {
+          "@id": "https://wireddentistry.com/#naren"
+        },
+        {
+          "@id": "https://wireddentistry.com/#lorne"
+        }
+      ],
+      "publisher": {
+        "@id": "https://wireddentistry.com/#organization"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Dental practice owners"
+      },
+      "genre": [
+        "Dentistry",
+        "Practice management",
+        "Marketing",
+        "Healthcare technology"
+      ]
+    },
+    {
+      "@type": "PodcastEpisode",
+      "@id": "https://wireddentistry.com/#episode-1",
+      "episodeNumber": 1,
+      "name": "Two Things Keep Dentists Up at Night",
+      "description": "Am I getting new patients, and is my practice one click away from a technology disaster? Lorne on the practices that have a backup but have never restored one. Naren on the gap between marketing that works and a practice that can hold what the marketing sends it.",
+      "timeRequired": "PT30M",
+      "partOfSeries": {
+        "@id": "https://wireddentistry.com/#podcast"
+      },
+      "url": "https://wireddentistry.com/#episodes"
+    },
+    {
+      "@type": "PodcastEpisode",
+      "@id": "https://wireddentistry.com/#episode-2",
+      "episodeNumber": 2,
+      "name": "The Patients Are There. Your Marketing Isn’t Reaching Them.",
+      "description": "The three tests of whether your marketing is working, the three numbers 95% of owners don’t know, why a PPO patient quietly costs $3,500 over five years, and the practice that went from $650,000 to $1.3 million while cutting a day off the schedule.",
+      "timeRequired": "PT32M",
+      "partOfSeries": {
+        "@id": "https://wireddentistry.com/#podcast"
+      },
+      "url": "https://wireddentistry.com/#episodes"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://wireddentistry.com/#naren",
+      "name": "Naren Arulrajah",
+      "jobTitle": "Founder & CEO, Ekwa Marketing",
+      "description": "Nineteen years of digital marketing for doctors, across more than a thousand practices.",
+      "knowsAbout": [
+        "Dental practice marketing",
+        "Patient acquisition",
+        "Local search for dentists"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Ekwa Marketing",
+        "url": "https://www.ekwa.com/"
+      },
+      "url": "https://wireddentistry.com/#hosts"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://wireddentistry.com/#lorne",
+      "name": "Dr. Lorne Lavine, DMD",
+      "jobTitle": "Founder, The Digital Dentist",
+      "description": "Dentist and periodontist, then twenty-five years inside dental practices' networks and servers.",
+      "knowsAbout": [
+        "Dental practice IT",
+        "HIPAA compliance",
+        "Cybersecurity for dental practices",
+        "Data backup and recovery"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "The Digital Dentist",
+        "url": "https://www.thedigitaldentist.com/"
+      },
+      "url": "https://wireddentistry.com/#hosts"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://wireddentistry.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is The Wired Dentistry?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Wired Dentistry is a weekly podcast for dental practice owners, hosted by Naren Arulrajah of Ekwa Marketing and Dr. Lorne Lavine of The Digital Dentist. Each episode runs about 30 minutes and covers the marketing and technology decisions that determine whether a practice grows. Guests appear every other week."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who hosts The Wired Dentistry?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Naren Arulrajah, founder and CEO of Ekwa Marketing, who has spent nineteen years doing digital marketing for doctors across more than a thousand practices; and Dr. Lorne Lavine, DMD, a dentist and periodontist who founded The Digital Dentist and has spent twenty-five years working inside dental practices' networks and servers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long is each episode?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "About 30 minutes. Episodes are published weekly, with guests every other week."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are The Wired Dentistry summits?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Four times a year The Wired Dentistry runs a three-hour live summit built as working sessions rather than keynotes, so attendees leave with their own plan. Attendance is capped so participants can ask questions. CE credit is available, offered through AGD for the November summit. Seats are released to the email list before they are made public."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I subscribe to The Wired Dentistry?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Subscribe at wireddentistry.com/subscribe. The weekly email contains the episode plus the one action from it worth taking, written down. Summit seats are released to the email list first."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -487,13 +774,5 @@ nav .btn2::after{display:none}
   </div>
 </footer>
 
-<script>
-/* Someone arriving on an explicit /index.html URL (an old link, a bookmark)
-   gets the address bar tidied to the clean path. No reload, no redirect —
-   the page they asked for is the page they already have. */
-if (location.pathname.slice(-11) === "/index.html") {
-  history.replaceState(null, "", location.pathname.slice(0, -10) + location.search + location.hash);
-}
-</script>
 </body>
 </html>

@@ -3,8 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+/* Someone arriving on an explicit /index.html URL (an old link, a bookmark)
+   gets the address bar tidied to the clean path. No reload, no redirect —
+   the page they asked for is the page they already have.
+   Runs before the Google tag below so the analytics page_view reports the
+   clean path, rather than splitting one page across two rows. */
+if (location.pathname.slice(-11) === "/index.html") {
+  history.replaceState(null, "", location.pathname.slice(0, -10) + location.search + location.hash);
+}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4SE2EYSHFF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4SE2EYSHFF');
+</script>
 <title>Subscribe — The Wired Dentistry</title>
 <meta name="description" content="The episode, plus the one thing from it worth doing. Written down, so you can hand it to your office manager on Monday. One email a week.">
+<link rel="canonical" href="https://wireddentistry.com/subscribe/">
+<meta name="theme-color" content="#10263A">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2310263A'/%3E%3Cpath d='M5 18h6l2-6 3 12 2-6h9' fill='none' stroke='%2312B5A5' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Wired Dentistry">
+<meta property="og:title" content="Subscribe — The Wired Dentistry">
+<meta property="og:description" content="The episode, plus the one thing from it worth doing. Written down, so you can hand it to your office manager on Monday. One email a week.">
+<meta property="og:url" content="https://wireddentistry.com/subscribe/">
+<meta property="og:image" content="https://wireddentistry.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Subscribe — The Wired Dentistry">
+<meta name="twitter:description" content="The episode, plus the one thing from it worth doing. Written down, so you can hand it to your office manager on Monday. One email a week.">
+<meta name="twitter:image" content="https://wireddentistry.com/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -85,7 +120,75 @@ footer p{font-size:13.5px;color:rgba(255,255,255,.66);max-width:34em}
   .three{grid-template-columns:1fr;gap:32px}
   .wrap{padding:0 24px}
 }
+
+@media(max-width:600px){
+  .wrap{padding:0 20px}
+  .hd{height:64px}
+  .logo{height:28px}
+  .logo-foot{height:26px}
+  .back{font-size:13px;padding:12px 0;display:inline-block}
+  .hero{padding:44px 0 40px}
+  h1{font-size:29px;line-height:1.16}
+  .lede{font-size:16px;margin-top:16px}
+  .card{padding:26px 20px}
+  .gets{padding:44px 0}
+  .three{gap:26px}
+  .strip{padding:32px 0}
+  .strip .row{gap:22px}
+  footer{padding:40px 0 32px}
+  .ft{gap:20px}
+}
+@media(max-width:380px){
+  .wrap{padding:0 16px}
+  .logo{height:24px}
+  h1{font-size:26px}
+}
+img,svg{max-width:100%}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://wireddentistry.com/subscribe/#webpage",
+      "url": "https://wireddentistry.com/subscribe/",
+      "name": "Subscribe — The Wired Dentistry",
+      "description": "The episode, plus the one thing from it worth doing. Written down, so you can hand it to your office manager on Monday. One email a week.",
+      "inLanguage": "en-US",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://wireddentistry.com/#website"
+      },
+      "about": {
+        "@type": "PodcastSeries",
+        "@id": "https://wireddentistry.com/#podcast"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://wireddentistry.com/og-image.jpg"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://wireddentistry.com/subscribe/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "The Wired Dentistry",
+          "item": "https://wireddentistry.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Subscribe"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -245,14 +348,6 @@ f.addEventListener("submit", function(e){
     fail("Something went wrong at our end. Try once more, or email us directly.");
   });
 });
-</script>
-<script>
-/* Someone arriving on an explicit /index.html URL (an old link, a bookmark)
-   gets the address bar tidied to the clean path. No reload, no redirect —
-   the page they asked for is the page they already have. */
-if (location.pathname.slice(-11) === "/index.html") {
-  history.replaceState(null, "", location.pathname.slice(0, -10) + location.search + location.hash);
-}
 </script>
 </body>
 </html>
