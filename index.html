@@ -261,7 +261,7 @@ nav .btn2::after{display:none}
       <a href="#hosts">Hosts</a>
       <a class="btn2" href="https://www.ekwa.com/wired/" target="_blank" rel="noopener">Marketing</a>
       <a class="btn2" href="https://www.thedigitaldentist.com/call/" target="_blank" rel="noopener">Technology</a>
-      <a class="btn" href="subscribe/index.html">Subscribe</a>
+      <a class="btn" href="/subscribe/">Subscribe</a>
     </nav>
   </div>
 </header>
@@ -281,7 +281,7 @@ nav .btn2::after{display:none}
       <p class="lede">Most owners run everything outside the operatory on a guess — at nine at night,
         on their own. Half an hour a week with two people who've watched how it actually goes.</p>
       <div class="cap">
-        <a class="herocta" href="subscribe/index.html">Get it weekly &rarr;</a>
+        <a class="herocta" href="/subscribe/">Get it weekly &rarr;</a>
         <p class="fine">The episode plus <b>the one thing from it worth doing</b> — written down,
           so you can hand it to your office manager on Monday. Summit seats go to the list first.</p>
       </div>
@@ -350,7 +350,7 @@ nav .btn2::after{display:none}
       <h2>Four times a year, everyone in one room.</h2>
       <p>Three hours, live. Working sessions rather than keynotes — you leave with your own plan,
         not a page of notes. It's a room rather than a broadcast, and a room has a limit.</p>
-      <a class="btn" href="subscribe/index.html">Get seats before they're public</a>
+      <a class="btn" href="/subscribe/">Get seats before they're public</a>
       <div class="snote">Seats are released to the email list first.</div>
     </div>
     <dl class="slist">
@@ -442,7 +442,7 @@ nav .btn2::after{display:none}
       <p>The episode, plus the one thing from it worth doing. And summit seats before anyone else.</p>
     </div>
     <div>
-      <a class="subcta" href="subscribe/index.html">Get it weekly &rarr;</a>
+      <a class="subcta" href="/subscribe/">Get it weekly &rarr;</a>
       <small>wireddentistry.com/subscribe · One email a week · Unsubscribe any time</small>
       <div class="apps">
         <a href="#">Apple Podcasts</a><a href="#">Spotify</a><a href="#">YouTube</a><a href="#">RSS</a>
@@ -478,7 +478,7 @@ nav .btn2::after{display:none}
       <div class="fc"><b>Events</b>
         <a href="#summit">Summits</a><a href="#">CE credit</a><a href="#">Past sessions</a></div>
       <div class="fc"><b>More</b>
-        <a href="subscribe/index.html">Newsletter</a><a href="#">Contact</a><a href="#">Privacy</a></div>
+        <a href="/subscribe/">Newsletter</a><a href="#">Contact</a><a href="#">Privacy</a></div>
     </div>
     <div class="fb">
       <span>© 2026 The Wired Dentistry</span>
@@ -487,5 +487,13 @@ nav .btn2::after{display:none}
   </div>
 </footer>
 
+<script>
+/* Someone arriving on an explicit /index.html URL (an old link, a bookmark)
+   gets the address bar tidied to the clean path. No reload, no redirect —
+   the page they asked for is the page they already have. */
+if (location.pathname.slice(-11) === "/index.html") {
+  history.replaceState(null, "", location.pathname.slice(0, -10) + location.search + location.hash);
+}
+</script>
 </body>
 </html>

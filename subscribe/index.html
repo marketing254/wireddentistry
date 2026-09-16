@@ -90,7 +90,7 @@ footer p{font-size:13.5px;color:rgba(255,255,255,.66);max-width:34em}
 <body>
 
 <header><div class="wrap hd">
-  <a href="../index.html"><svg class="logo" preserveAspectRatio="xMinYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1208 210">
+  <a href="/"><svg class="logo" preserveAspectRatio="xMinYMid meet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1208 210">
   
   <g transform="translate(102.12,125.52) scale(0.7800)">
     <path d="M-54,-40 C-54,-76 -31,-94 -8,-84 C-3,-82 3,-82 8,-84 C31,-94 54,-76 54,-40 C54,-15 44,4 39,33 C35,58 29,72 19,72 C9,72 7,53 2,29 C1,24 -1,24 -2,29 C-7,53 -9,72 -19,72 C-28,72 -35,58 -39,33 C-44,4 -54,-15 -54,-40 Z" fill="#10263A"/>
@@ -104,7 +104,7 @@ footer p{font-size:13.5px;color:rgba(255,255,255,.66);max-width:34em}
   <text x="207" y="82" font-family="Poppins" font-weight="500" font-size="30" letter-spacing="11" fill="#7C8B99">THE</text>
   <text x="207" y="176" font-family="Poppins" font-weight="700" font-size="104" letter-spacing="1" fill="#10263A">WIRED DENTISTRY</text>
 </svg></a>
-  <a class="back" href="../index.html">← Back to the show</a>
+  <a class="back" href="/">← Back to the show</a>
 </div></header>
 
 <section class="hero"><div class="wrap grid">
@@ -245,6 +245,14 @@ f.addEventListener("submit", function(e){
     fail("Something went wrong at our end. Try once more, or email us directly.");
   });
 });
+</script>
+<script>
+/* Someone arriving on an explicit /index.html URL (an old link, a bookmark)
+   gets the address bar tidied to the clean path. No reload, no redirect —
+   the page they asked for is the page they already have. */
+if (location.pathname.slice(-11) === "/index.html") {
+  history.replaceState(null, "", location.pathname.slice(0, -10) + location.search + location.hash);
+}
 </script>
 </body>
 </html>
