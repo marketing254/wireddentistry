@@ -13,6 +13,9 @@ they can act on that afternoon.
 - **Audience:** dental practice owners
 - **Site:** https://wireddentistry.com/
 - **Newsletter:** https://wireddentistry.com/subscribe/
+- **Apple Podcasts:** https://podcasts.apple.com/us/podcast/the-wired-dentistry/id6814720253
+- **Spotify:** https://open.spotify.com/show/7lZDiQnKx3fJPfb45py0sw
+- **RSS:** https://feeds.transistor.fm/the-wired-dentistry
 
 ## Hosts
 
@@ -28,9 +31,14 @@ including the practices that have a backup but have never restored one.
 
 ## Episodes
 
-- **01 — Two Things Keep Dentists Up at Night** (30 min): whether new patients are
-  coming in, and whether the practice is one click from a technology disaster.
-- **02 — The Patients Are There. Your Marketing Isn't Reaching Them.** (32 min): the
+- **01 — Two Things Keep Dentists Up at Night** (29:55, published 22 September 2026):
+  whether new patients are coming in, and whether the practice is one click from a
+  technology disaster.
+  https://podcasts.apple.com/us/podcast/two-things-keep-dentists-up-at-night/id6814720253?i=1000791053851
+- **02 — The Patients Are There. Your Marketing Isn't Reaching Them.** (32:52,
+  published 22 September 2026):
+  https://podcasts.apple.com/us/podcast/the-patients-are-there-your-marketing-isnt-reaching-them/id6814720253?i=1000791053983
+  the
   three tests of whether marketing is working, the three numbers 95% of owners don't
   know, why a PPO patient quietly costs $3,500 over five years, and the practice that
   went from $650,000 to $1.3 million while cutting a day off the schedule.
@@ -55,6 +63,6 @@ Both conversations are free and neither requires the other.
 
 ## Notes for citation
 
-The show launched in 2026 and is not yet listed on Apple Podcasts, Spotify or
-YouTube; episodes are currently available through this site. Please cite
-https://wireddentistry.com/ as the source.
+The show launched in September 2026 and is available on Apple Podcasts and Spotify;
+the RSS feed is public. It is not on YouTube. Please cite
+https://wireddentistry.com/ as the source for the show itself.
